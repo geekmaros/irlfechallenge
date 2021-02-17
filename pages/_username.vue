@@ -1,6 +1,6 @@
 <template>
   <div class="container flex flex-col">
-    <EventsCardComponent></EventsCardComponent>
+    <EventsCardComponent :datasource='events'></EventsCardComponent>
   </div>
 </template>
 
@@ -11,15 +11,15 @@ import EventsCardComponent from '~/components/EventsCardComponent'
 // import fetchUser from "~/apollo-api/queries/fetchUserAndUserPlan.gql"
 export default {
   name: 'username',
-  async asyncData({ store, params }) {
-    await store.dispatch('events/getUserAndPlans', {
-      username: params.username,
-    })
-  },
+  // async asyncData({ store, params }) {
+  //   await store.dispatch('events/getUserAndPlans', {
+  //     username: params.username,
+  //   })
+  // },
   components: { EventsCardComponent },
   computed: {
     ...mapState({
-      events: (state) => state.events.events,
+      events: (state) =>  state.events.events,
     }),
   },
 }

@@ -1,6 +1,7 @@
 <template>
   <div class="container flex flex-col">
-    <EventsCardComponent></EventsCardComponent>
+    <pre>{{datasource}}</pre>
+<!--    <EventsCardComponent :datasource='events'></EventsCardComponent>-->
   </div>
 </template>
 
@@ -10,6 +11,11 @@ import EventsCardComponent from "~/components/EventsCardComponent";
 // import gql from 'graphql-tag'
 // import fetchUser from "~/apollo-api/queries/fetchUserAndUserPlan.gql"
 export default {
+  computed: {
+    ...mapState({
+      events: "events/events"
+    })
+  },
   components: { EventsCardComponent }
 }
 </script>

@@ -1,11 +1,11 @@
 <template>
-  <main class="mx-auto lg:max-w-screen-lg pt-10 pb-10" v-if="events">
+  <main class="mx-auto lg:max-w-screen-lg pt-10 pb-10" v-if="datasource">
     <div
       class="card-container grid grid-cols--1 md:grid-cols-2 lg:grid-cols-3 gap-8"
     >
       <nuxt-link
         :to="`/${event.slug}/${event.key}`"
-        v-for="(event, index) in events.userPlans.plans"
+        v-for="(event, index) in datasource.userPlans.plans"
         :key="event.key"
       >
         <EventCard :event="event"></EventCard>
@@ -35,7 +35,13 @@ export default {
       events: (state) => state.events.events,
     }),
   },
-  mounted() {},
+  props:{
+    datasource: {
+      type: [Array, Object]
+    }
+  },
+  mounted() {
+  },
 }
 </script>
 
